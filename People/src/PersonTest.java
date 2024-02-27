@@ -1,10 +1,8 @@
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class PersonTest {
-
 
 	@Test
 	void testPerson() {
@@ -18,7 +16,6 @@ class PersonTest {
 
 		assertEquals(person1,person3);
 		assertNotEquals(person2,person3);
-		
 		
 	}
 
