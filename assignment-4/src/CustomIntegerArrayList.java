@@ -224,7 +224,11 @@ public class CustomIntegerArrayList {
 			return new ArrayList<>();
 		}	
 
-		return null; 
+		for (int i = index; i < this.arr.size(); i++) {
+			removedElements.add(this.arr.get(i));
+		}
+
+		return removedElements; 
 	}
 
 	/**
@@ -268,8 +272,15 @@ public class CustomIntegerArrayList {
 	 * @return ArrayList of removed elements
 	 */
 	public ArrayList<Integer> splice(int index, int num, int[] otherArray) {
-		// TODO Implement method
-		return null;
+
+		ArrayList<Integer> removedElements = this.splice(index, num);
+		
+		// this.arr.addAll(index, otherArray);
+		for (int i = 0; i < otherArray.length; i++) {
+            this.arr.add(index + i, otherArray[i]);
+        }
+		return removedElements;
+		
 	}
 	
 	public static void main(String args[]) {
