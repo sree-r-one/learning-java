@@ -256,6 +256,38 @@ class CustomIntegerArrayListTest {
 		assertEquals(lst1, arr1.getArrayList());
 
 		// TODO write at least 3 additional test cases 
+
+		// Additional test case 1
+        CustomIntegerArrayList arr6 = new CustomIntegerArrayList();
+        arr6.add(1);
+        arr6.add(2);
+        arr6.add(3);
+        arr6.add(4);
+        arr6.remove(1, 2);
+        ArrayList<Integer> lst6 = new ArrayList<>();
+        lst6.add(1);
+        lst6.add(4);
+        assertEquals(lst6, arr6.getArrayList());
+
+        // Additional test case 2
+        CustomIntegerArrayList arr7 = new CustomIntegerArrayList();
+        arr7.add(1);
+        arr7.remove(0, 1);
+        ArrayList<Integer> lst7 = new ArrayList<>();
+        assertEquals(lst7, arr7.getArrayList());
+
+        // Additional test case 3
+        CustomIntegerArrayList arr8 = new CustomIntegerArrayList();
+        arr8.add(1);
+        arr8.add(2);
+        arr8.add(3);
+        arr8.add(4);
+        arr8.remove(5, 1); // Removing more elements than present in the list
+        ArrayList<Integer> lst8 = new ArrayList<>();
+        lst8.add(2);
+        lst8.add(3);
+        lst8.add(4);
+        assertEquals(lst8, arr8.getArrayList());
 	}
 
 	@Test
