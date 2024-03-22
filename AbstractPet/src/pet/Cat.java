@@ -75,6 +75,4 @@ public class Cat extends Pet{
         return "Cat [type=" + type + "]";
     }
 
-    
-    
 }

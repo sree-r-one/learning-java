@@ -1,72 +1,80 @@
 package pet;
 
+import java.util.ArrayList;
+
+/**
+ * Abstract class for a generic Pet
+ */
 public abstract class Pet {
-    
-    // instance variables 
+
+    // instance variables
 
     /**
-     * Age of the pet 
-     * Default access 
-     * Accessible anywhere in the package
-     */
-    int age; 
-
-    /**
-     * Name of the pet 
+     * Age of the pet
      * Default access
-     * Accessible anywhere in the package 
-     */
-    String name; 
-
-    /**
-     * Weight of the pet 
-     * Default access 
      * Accessible anywhere in the package
      */
-    double weight; 
-
-    // Constructor 
+    int age;
 
     /**
-     * Called by subclasses of pet to create instances of different types of pets 
-     * @param age of pet
-     * @param name of pet 
-     * @param weight of pet 
+     * Name of the pet
+     * Default access
+     * Accessible anywhere in the package
      */
-    public Pet(int age, String name, double weight){
-        this.age = age; 
-        this.name = name; 
+    String name;
+
+    /**
+     * Weight of the pet
+     * Default access
+     * Accessible anywhere in the package
+     */
+    double weight;
+
+    // Constructor
+
+    /**
+     * Called by subclasses of pet to create instances of different types of pets
+     * 
+     * @param age    of pet
+     * @param name   of pet
+     * @param weight of pet
+     */
+    public Pet(int age, String name, double weight) {
+        this.age = age;
+        this.name = name;
         this.weight = weight;
     }
 
-    // Getters and setters 
+    // Getters and setters
 
     /**
-     * Gets the weight 
-     * @return weight of the pet 
+     * Gets the weight
+     * 
+     * @return weight of the pet
      */
-    public double getWeight(){
+    public double getWeight() {
         return weight;
     }
 
     /**
-     * Sets the weight of the pet 
-     * @param weight of the pet to be set 
+     * Sets the weight of the pet
+     * 
+     * @param weight of the pet to be set
      */
-    public void setWeight(double weight){
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    // Non abstract methods 
-    public void eat(Food food){
-        this.weight += (food.getCalories()/100);
+    // Non abstract methods
+    public void eat(Food food) {
+        this.weight += (food.getCalories() / 100);
     }
 
     // Abstract methods
 
     /**
-     * Forces all pets to make their own sound 
-     * All subclasses of Pet MUST implement this method 
+     * Forces all pets to make their own sound
+     * All subclasses of Pet MUST implement this method
      */
     public abstract void makeSound();
 
@@ -76,5 +84,21 @@ public abstract class Pet {
     @Override
     public abstract String toString();
 
+    public static void main(String[] args) {
+
+        // Create array of pets
+
+        ArrayList<Pet> pets = new ArrayList<Pet>();
+
+        Dog dog1 = new Dog(12, "Buster", 12.5, "German Shepard");
+
+        pets.add(dog1);
+
+        for (Pet pet : pets) {
+            String message = pet.toString();
+            System.out.println(message);
+        }
+
+    }
 
 }

@@ -1,7 +1,7 @@
 package pet;
 
 /**
- * Represets the generic food for a pet 
+ * Represents the generic food for a pet 
  */
 public class Food {
     
