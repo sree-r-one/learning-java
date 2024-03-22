@@ -21,24 +21,53 @@
 //     }
 // }
 
+// abstract class Calculation {
+//     abstract void calculate(int number);
+// }
+
+// class Summation extends Calculation {
+//     int result;
+
+//     @Override
+//     public void calculate(int number) {
+//         this.result = number + number;
+//     }
+// }
+
+// class Main {
+//     public static void main(String args[]) {
+//         Summation summation = new Summation();
+//         summation.result = 0;
+//         summation.calculate(2);
+//         System.out.print(summation.result);
+//     }
+// }
+
 abstract class Calculation {
     abstract void calculate(int number);
 }
 
-class Summation extends Calculation {
+class MySummation extends Calculation {
     int result;
 
     @Override
     public void calculate(int number) {
-        this.result = number + number;
+        if (number < 10) {
+            this.result = 590;
+        } else {
+            this.result = number + number;
+        }
     }
 }
 
 class Main {
     public static void main(String args[]) {
-        Summation summation = new Summation();
-        summation.result = 0;
-        summation.calculate(2);
-        System.out.print(summation.result);
+        MySummation mySummation1 = new MySummation();
+        mySummation1.calculate(9);
+        MySummation mySummation2 = new MySummation();
+        mySummation2.calculate(10);
+        System.out.print(mySummation1.result);
+        System.out.print(", ");
+        System.out.print(mySummation2.result);
     }
 }
