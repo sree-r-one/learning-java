@@ -42,6 +42,11 @@ public class Vehicle {
      */
     protected String type;
 
+    /**
+     * Maximum amount of gas the tank can hold
+     */
+    protected int maxGasAmountInTank;
+
     // Constructors
 
     public Vehicle() {
@@ -50,9 +55,70 @@ public class Vehicle {
         this.gasRemained = 0;
     }
 
+    // Setters and getters
+
+    /**
+     * Gets age of vehicle
+     * 
+     * @return age
+     */
+    public int getAge() {
+        return age;
+    }
+
+    /**
+     * Gets gas remining in the tank
+     * 
+     * @return gasRemained
+     */
+    public int getGasRemained() {
+        return gasRemained;
+    }
+
+    /**
+     * Gets total gas consumed by running
+     * 
+     * @return gasConsumedPerHour
+     */
+    public int getGasConsumedPerHour() {
+        return gasConsumedPerHour;
+    }
+
+    /**
+     * Should be overridden by subclasses Car and Bike
+     * 
+     * For car, adds given amount of fuel into the car
+     * 
+     * For bike, prints "You don't need to refuel a bike"
+     * 
+     * @param amountOfGas
+     */
+    public void refuel(int amountOfGas) {
+    }
+
+    /**
+     * Should be overridden by subclasses Car and Bike
+     * 
+     * For car, tells the car to run for a given number of hours
+     * 
+     * For bike, print "Eco-friendly travel by bicycle!"
+     * 
+     * @param hours
+     */
+    public void run(int hours) {
+    }
+
     @Override
     public String toString() {
-        return "Vehicle []";
+        return "";
+    }
+
+    /**
+     * 
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return false;
     }
 
 }
