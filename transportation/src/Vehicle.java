@@ -1,7 +1,3 @@
-
-import transportation.Bike;
-import transportation.Car;
-
 /**
  * Represents a vehicle. Will be extended by classes representing different
  * kinds of vehicles: Car and Bike
@@ -169,7 +165,6 @@ public class Vehicle {
 	 * @param hours to run
 	 */
 	public void run(int hours) {
-
 		return;
 	}
 
@@ -205,9 +200,7 @@ public class Vehicle {
 	 */
 	@Override
 	public boolean equals(Object o) {
-
 		// TODO Implement method
-
 		return false;
 	}
 
@@ -235,9 +228,7 @@ public class Vehicle {
 	 */
 	@Override
 	public String toString() {
-
 		// TODO Implement method
-
 		return "";
 	}
 
