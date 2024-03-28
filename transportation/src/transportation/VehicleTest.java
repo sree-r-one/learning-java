@@ -1,11 +1,11 @@
 package transportation;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class VehicleTest {
-
 	Vehicle jeep1;
 	Vehicle jeep2;
 	Vehicle benz;
@@ -103,6 +103,13 @@ class VehicleTest {
 		assertEquals(200, jeep1.getGasRemained());
 
 		// TODO write at least 3 additional test cases
+		bike2.refuel(100);
+		assertEquals(0, bike2.getGasRemained());
+		bike3.refuel(100);
+		assertEquals(0, bike3.getGasRemained());
+
+		benz.refuel(100);
+		assertEquals(100, benz.getGasRemained());
 
 	}
 
@@ -111,7 +118,7 @@ class VehicleTest {
 		bike2.run(100);
 		bike2.run(100);
 		bike2.run(100);
-		assertEquals(0, bike1.getGasRemained());
+		assertEquals(0, bike2.getGasRemained());
 
 		benz.run(10);
 		assertEquals(0, benz.getGasRemained());
@@ -120,12 +127,30 @@ class VehicleTest {
 		assertEquals(50, benz.getGasRemained());
 
 		// TODO write at least 3 additional test cases
+		bike2.run(100);
+		bike2.run(100);
+		bike2.run(100);
+		assertEquals(0, bike2.getGasRemained());
+
+		bike2.run(100);
+		bike2.run(100);
+		bike2.run(100);
+		assertEquals(0, bike2.getGasRemained());
+
+		bike2.run(100);
+		bike2.run(100);
+		bike2.run(100);
+		assertEquals(0, bike2.getGasRemained());
+
 	}
 
 	@Test
 	void testEquals() {
 		assertTrue(jeep1.equals(jeep2));
 		assertFalse(benz.equals(jeep2));
+		assertFalse(bike1.equals(bike2));
+		assertFalse(bike1.equals(benz));
+		assertFalse(bike1.equals(jeep1));
 
 		// TODO write at least 3 additional test cases
 	}
@@ -136,6 +161,9 @@ class VehicleTest {
 		assertEquals("Bike Trek", bike1.toString());
 
 		// TODO write at least 3 additional test cases
+		assertEquals("Bike Giant", bike2.toString());
+		assertEquals("Bike Giant", bike3.toString());
+		assertEquals("Car Benz", benz.toString());
 
 	}
 }

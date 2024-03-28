@@ -204,9 +204,11 @@ public class Vehicle {
 	@Override
 	public boolean equals(Object o) {
 
-		// TODO Implement method
+		// Cast the object to Vehicle
+		Vehicle otherVehicle = (Vehicle) o;
 
-		return false;
+		// Compare the brand and type of the vehicles
+		return this.brand.equals(otherVehicle.brand) && this.type.equals(otherVehicle.type);
 	}
 
 	/**
