@@ -1,5 +1,7 @@
 package files;
 
+import java.util.ArrayList;
+
 /**
  * Controller class
  */
@@ -15,5 +17,9 @@ public class Main {
         } finally {
             System.out.println("Total sum : " + sum);
         }
+
+        // Get list of line sums
+        ArrayList<Double> lineSums = MyFileReader.readFileGetLineSums(fileName);
+        System.out.println(lineSums);
     }
 }

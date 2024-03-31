@@ -1,7 +1,11 @@
 package files;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -46,5 +50,88 @@ public class MyFileReader {
         scanner.close();
 
         return sum;
+    }
+
+    /**
+     * Calculates the sum of numbers in each line of the given fileName
+     * 
+     * @param fileName to read
+     * @return list of line sums
+     */
+    public static ArrayList<Double> readFileGetLineSums(String fileName) {
+
+        // Create arraylist to store sum of numbers for each line of the given file
+        ArrayList<Double> lineSums = new ArrayList<Double>();
+
+        // Create file object
+        File file = new File(fileName);
+
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
+
+        try {
+            // Create file reader
+            fileReader = new FileReader(file);
+
+            // Create buffered reader for the file reader
+            bufferedReader = new BufferedReader(fileReader);
+
+            String line;
+
+            while ((line = bufferedReader.readLine()) != null) {
+
+                // Split line into tokens (values) based on whitespace using regular expression
+                // to indicate one or more instances of whitespaces
+                String[] numStringArray = line.trim().split("\\s+");
+
+                // Set default sum for line
+                double sum = 0.0;
+
+                // Iterate over the array of strings
+                for (int i = 0; i < numStringArray.length; i++) {
+
+                    // Get each value as a string
+                    String numString = numStringArray[i];
+
+                    try {
+
+                        // Cast each value to a double
+                        double numDouble = Double.parseDouble(numString);
+
+                        // Add to sum for line
+                        sum += numDouble;
+
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+                // Add line sum to list of sums
+                lineSums.add(sum);
+            }
+
+        } catch (FileNotFoundException e) {
+
+            // Gets and prints fileName
+            System.out.println("Sorry, " + file.getName() + " not found! ");
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            // Prints error message and info about which line
+            e.printStackTrace();
+
+        } finally {
+            // Regardless of what happens, close the file object
+            try {
+                fileReader.close();
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return lineSums;
     }
 }
