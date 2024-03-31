@@ -21,5 +21,7 @@ public class Main {
         // Get list of line sums
         ArrayList<Double> lineSums = MyFileReader.readFileGetLineSums(fileName);
         System.out.println(lineSums);
+
+        MyFileWriter.writeFileLineSums("linesums_new.txt", lineSums, false);
     }
 }
