@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -83,6 +84,30 @@ public class CollectionsClass {
         return wordCountMap;
     }
 
+    /**
+     * Takes map of food keys and food toppings values and modifies and returns the
+     * map as follows ;
+     * If Key "ice cream" is present, set value to "cherry"
+     * 
+     * In all cases, set the key "bread" to have the value of "butter"
+     * 
+     * @param map of food items and toppings
+     * @return updated map of food items and toppings
+     */
+    public static Map<String, String> setToppings(Map<String, String> map) {
+
+        // Add key "bread" and value "butter", if not in map
+
+        if (!map.containsKey("bread")) {
+            map.put("bread", "butter");
+        }
+
+        if (map.containsKey("ice cream")) {
+            map.replace("ice cream", "cherry");
+        }
+        return map;
+    }
+
     public static void main(String[] args) {
 
         // Create array of ints
@@ -107,6 +132,20 @@ public class CollectionsClass {
         Map<String, Integer> ret = CollectionsClass.wordCount(strings);
         System.out.println("WordCount : " + ret);
         System.out.println();
+
+        // Set Toppings
+        Map<String, String> food = new HashMap<String, String>();
+        food.put("ice cream", "peanuts");
+        Map<String, String> m = CollectionsClass.setToppings(food);
+        System.out.println(m);
+
+        HashSet<String> set = new HashSet<String>();
+        set.add("Hello");
+        set.add("Hello");
+        set.add("Goodbye");
+        for (String s : set) {
+            System.out.print(s);
+        }
 
     }
 
