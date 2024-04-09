@@ -42,9 +42,7 @@ public class InfoProcessor {
 	 */
 	public String getCourseName() {
 
-		// TODO Implement method
-
-		return null;
+		return getNextStringStartsWith("Course:");
 	}
 
 	/**
@@ -67,9 +65,9 @@ public class InfoProcessor {
 	 */
 	public int getCourseId() {
 
-		// TODO Implement method
-
-		return 0;
+		String strCourseID = getNextStringStartsWith("CourseID");
+		int courseID = Integer.parseInt(strCourseID);
+		return courseID;
 	}
 
 	/**
@@ -95,9 +93,9 @@ public class InfoProcessor {
 	 */
 	public int getStudentId() {
 
-		// TODO Implement method
-
-		return 0;
+		String strStudentID = getNextStringStartsWith("StudentID");
+		int studentID = Integer.parseInt(strStudentID);
+		return studentID;
 	}
 
 	/**
@@ -122,7 +120,11 @@ public class InfoProcessor {
 	 */
 	String getNextStringStartsWith(String str) {
 
-		// TODO Implement method
+		for (int i = 0; i < lines.size() - 1; i++) {
+			if (lines.get(i).startsWith(str)) {
+				return lines.get(i + 1);
+			}
+		}
 
 		return null;
 	}
