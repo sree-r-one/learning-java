@@ -49,7 +49,6 @@ class MyFileReaderTest {
 
 		actualContent = myFileReader2.getCleanContent();
 		expectedContent = new ArrayList<String>();
-//		expectedContent.removeAll(expectedContent);
 		expectedContent.add("Lines Other Info");
 		expectedContent.add("\"The Project Gutenberg EBook of War and Peace, by Leo Tolstoy\"");
 		expectedContent.add("Author: Leo Tolstoy");
@@ -61,7 +60,6 @@ class MyFileReaderTest {
 
 		actualContent = myFileReader3.getCleanContent();
 		expectedContent = new ArrayList<String>();
-//		expectedContent.removeAll(expectedContent);
 		expectedContent.add("In the first case it was necessary to renounce the consciousness of an");
 		expectedContent.add("unreal immobility in space and to recognize a motion we did not feel;");
 		expectedContent.add("in the present case it is similarly necessary to renounce a freedom");
@@ -70,7 +68,6 @@ class MyFileReaderTest {
 		expectedContent.add("Most people start at our Web site which has the main PG search facility:");
 		expectedContent.add("http://www.gutenberg.org");
 		assertEquals(expectedContent, actualContent);
-		
 
 	}
 
