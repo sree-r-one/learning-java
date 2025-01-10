@@ -16,4 +16,16 @@ public class Dollar {
         return fAmount;
     }
 
+    @Override
+    public boolean equals(Object anotherDollar) {
+
+        if (anotherDollar instanceof Dollar) {
+            Dollar another = (Dollar) anotherDollar;
+            return fAmount == another.getAmount();
+        }
+
+        // Default
+        return false;
+    }
+
 }
